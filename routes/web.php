@@ -34,6 +34,14 @@ Route::get('/home/bom', function () {
     return view('bom.bom');
 });
 
+Route::get('/home/rfq', function () {
+    return view('rfq.rfq');
+});
+
+Route::get('/home/po', function () {
+    return view('po.po');
+});
+
 Route::get('/home/vendor', [VendorController::class, 'index']);
 Route::get('/home/vendor/tambah', [VendorController::class, 'create']);
 Route::post('/home/vendor/simpan', [VendorController::class, 'store'])->name('vendor-simpan');

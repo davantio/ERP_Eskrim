@@ -202,6 +202,37 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#rfq-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-clipboard"></i><span>Request For Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="rfq-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/rfq">
+              <i class="bi bi-circle"></i><span>Data RFQ</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/rfq/tambah">
+              <i class="bi bi-circle"></i><span>Tambah RFQ</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#po-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-clipboard-check"></i><span>Purchase Order</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="po-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/po">
+              <i class="bi bi-circle"></i><span>Data Purchase Order</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#pembeli-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Pembeli</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
