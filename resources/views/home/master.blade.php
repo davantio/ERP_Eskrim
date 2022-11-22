@@ -184,6 +184,24 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-truck"></i><span>Vendor</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="vendor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/vendor">
+              <i class="bi bi-circle"></i><span>Data Vendor</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/vendor/tambah">
+              <i class="bi bi-circle"></i><span>Tambah Vendor</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#pembeli-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Pembeli</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>

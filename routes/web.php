@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\VendorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,13 @@ Route::get('/home/produk/delete/{id}', [ProdukController::class, 'destroy'])->na
 Route::get('/home/bom', function () {
     return view('bom.bom');
 });
+
+Route::get('/home/vendor', [VendorController::class, 'index']);
+Route::get('/home/vendor/tambah', [VendorController::class, 'create']);
+Route::post('/home/vendor/simpan', [VendorController::class, 'store'])->name('vendor-simpan');
+Route::get('/home/vendor/edit/{id}', [VendorController::class, 'edit']);
+Route::put('/home/vendor/update/{id}', [VendorController::class, 'update'])->name('vendor-update');
+Route::get('/home/vendor/delete/{id}', [VendorController::class, 'destroy'])->name('vendor-delete');
 
 Route::get('/home/pembeli', [PembeliController::class, 'index']);
 Route::get('/home/pembeli/tambah', [PembeliController::class, 'create']);

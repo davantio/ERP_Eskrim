@@ -6,7 +6,6 @@ use App\Models\Produk;
 use Illuminate\Http\Request;
 use File;
 
-
 class ProdukController extends Controller
 {
     /**
