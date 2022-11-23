@@ -109,7 +109,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-heading">Menu Utama</li>
+      <li class="nav-heading">Manufacturing</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="#">
@@ -124,6 +124,24 @@
           <li>
             <a href="/home/produk/tambah">
               <i class="bi bi-circle"></i><span>Tambah Produk</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#bahan-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Bahan</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="bahan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/bahan">
+              <i class="bi bi-circle"></i><span>Data Bahan</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/bahan/tambah">
+              <i class="bi bi-circle"></i><span>Tambah Bahan</span>
             </a>
           </li>
         </ul>
@@ -165,23 +183,7 @@
         </ul>
       </li><!-- End Forms Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#penjualan-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart3"></i><span>Penjualan</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="penjualan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/home/penjualan">
-              <i class="bi bi-circle"></i><span>Data Penjualan</span>
-            </a>
-          </li>
-          <li>
-            <a href="/home/penjualan/tambah">
-              <i class="bi bi-circle"></i><span>Tambah Penjualan</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
+      <li class="nav-heading">Purchasing</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
@@ -227,6 +229,26 @@
           <li>
             <a href="/home/po">
               <i class="bi bi-circle"></i><span>Data Purchase Order</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-heading">Sales</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#penjualan-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart3"></i><span>Penjualan</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="penjualan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/penjualan">
+              <i class="bi bi-circle"></i><span>Data Penjualan</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/penjualan/tambah">
+              <i class="bi bi-circle"></i><span>Tambah Penjualan</span>
             </a>
           </li>
         </ul>

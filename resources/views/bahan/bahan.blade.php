@@ -1,15 +1,15 @@
 @extends('home.master')
 
-@section('judul', 'Halaman Data Produk')
+@section('judul', 'Halaman Data Bahan')
 
 @section('isi')
     <div class="pagetitle">
-      <h1>Data Produk</h1>
+      <h1>Data Bahan</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item">Produk</li>
-          <li class="breadcrumb-item active">Data Produk</li>
+          <li class="breadcrumb-item">Bahan</li>
+          <li class="breadcrumb-item active">Data Bahan</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -20,39 +20,39 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Data Produk</h5>
+              <h5 class="card-title">Data Bahan</h5>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <div class="card-body">
-                    <a href="/home/produk/tambah"><button type="button" class="btn btn-primary">Tambah Produk</button></a>
+                    <a href="/home/bahan/tambah"><button type="button" class="btn btn-primary">Tambah Bahan</button></a>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nama Produk</th>
-                    <th scope="col">Kode Produk</th>
-                    <th scope="col">Harga Produk</th>
+                    <th scope="col">Nama Bahan</th>
+                    <th scope="col">Kode Bahan</th>
+                    <th scope="col">Harga Bahan</th>
                     <th scope="col">Barcode</th>
-                    <th scope="col">Kuantitas</th>
+                    <th scope="col">Stok</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($produk as $pdk)
+                @foreach ($bahan as $bhn)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
-                      <td>{{ $pdk->nama }}</td>
-                      <td>{{ $pdk->kode }}</td>
-                      <td>{{ 'Rp. ' .$pdk->harga }}</td>
-                      <td>{{ $pdk->barcode }}</td>
-                      <td>{{ $pdk->stok }}</td>
+                      <td>{{ $bhn->nama }}</td>
+                      <td>{{ $bhn->kode }}</td>
+                      <td>{{ 'Rp. ' .$bhn->harga }}</td>
+                      <td>{{ $bhn->barcode }}</td>
+                      <td>{{ $bhn->stok }}</td>
                       <td width="25%">
-                        <img src="{{ url('/img_produk/'.$pdk->gambar) }}" width="40%" alt="">
+                        <img src="{{ url('/img_bahan/'.$bhn->gambar) }}" width="40%" alt="">
                       </td>
                       <td>
-                          <a href="/home/produk/edit/{{ $pdk->id }}">Edit</a>
-                          <a href="/home/produk/delete/{{ $pdk->id }}">Hapus</a>
+                          <a href="/home/bahan/edit/{{ $bhn->id }}">Edit</a>
+                          <a href="/home/bahan/delete/{{ $bhn->id }}">Hapus</a>
                       </td>
                     </tr>
                 @endforeach
