@@ -44,12 +44,6 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Barcode</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="barcode" id="barcode" class="form-control">
-                  </div>
-                </div>
-                <div class="row mb-3">
                   <label for="inputFile" class="col-sm-2 col-form-label">Gambar</label>
                   <div class="col-sm-10">
                     <input type="file" name="gambar" id="gambar" class="form-control">

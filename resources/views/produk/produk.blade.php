@@ -26,14 +26,15 @@
               <table class="table datatable">
                 <div class="card-body">
                     <a href="/home/produk/tambah"><button type="button" class="btn btn-primary">Tambah Produk</button></a>
+                    <a href="/home/produk/cetak" target="_blank"><button type="button" class="btn btn-dark">Cetak Produk</button></a>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nama Produk</th>
-                    <th scope="col">Kode Produk</th>
-                    <th scope="col">Harga Produk</th>
                     <th scope="col">Barcode</th>
-                    <th scope="col">Kuantitas</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Kode</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Stok</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Aksi</th>
                   </tr>
@@ -42,10 +43,10 @@
                 @foreach ($produk as $pdk)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
-                      <td>{{ $pdk->nama }}</td>
+                      <td>{!! DNS1D::getBarcodeHTML('Rp. '. $pdk->harga, 'C39') !!}</td>
+                      <td width="15%">{{ $pdk->nama }}</td>
                       <td>{{ $pdk->kode }}</td>
-                      <td>{{ 'Rp. ' .$pdk->harga }}</td>
-                      <td>{{ $pdk->barcode }}</td>
+                      <td width="15%">{{ 'Rp. ' .$pdk->harga }}</td>
                       <td>{{ $pdk->stok }}</td>
                       <td width="25%">
                         <img src="{{ url('/img_produk/'.$pdk->gambar) }}" width="40%" alt="">

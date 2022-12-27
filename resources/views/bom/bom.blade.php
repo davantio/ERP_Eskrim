@@ -25,7 +25,7 @@
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <div class="card-body">
-                    <a href="/home/bom/tambah"><button type="button" class="btn btn-primary">Tambah BoM</button></a>
+                    <a href="/home/bom-input"><button type="button" class="btn btn-primary">Tambah BoM</button></a>
                     <a href="/home/bom/cetak" target="_blank"><button type="button" class="btn btn-secondary">Cetak BoM</button></a>
                 </div>
                 <thead>
@@ -34,22 +34,30 @@
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Kuantitas</th>
                     <th scope="col">Nama BoM</th>
+                    <th scope="col">Total Harga</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                
+                  @if($boms->count())
+                  @foreach($boms as $item)
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{$loop->iteration}}</td>
+                      <td>{{$item->nama}}</td>
+                      <td>{{$item->kuantitas}}</td>
+                      <td>{{$item->kode_bom}}</td>
+                      <td>{{$item->total_harga}}</td>
                       <td>
-                          <a href="/home/produk/edit">Edit</a>
-                          <a href="/home/produk/delete">Hapus</a>
+                          <a href="{{ url('/home/bom-input-item/'.$item->kode_bom) }}">Edit</a>
+                          <a href="/home/bom/delete">Hapus</a>
                       </td>
                     </tr>
-                
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="7"> No record found </td>
+                    </tr>
+                    @endif
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

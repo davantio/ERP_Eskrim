@@ -158,7 +158,7 @@
             </a>
           </li>
           <li>
-            <a href="/home/bom/tambah">
+            <a href="/home/bom-input">
               <i class="bi bi-circle"></i><span>Tambah BOM</span>
             </a>
           </li>
@@ -237,24 +237,6 @@
       <li class="nav-heading">Sales</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#penjualan-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart3"></i><span>Penjualan</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="penjualan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/home/penjualan">
-              <i class="bi bi-circle"></i><span>Data Penjualan</span>
-            </a>
-          </li>
-          <li>
-            <a href="/home/penjualan/tambah">
-              <i class="bi bi-circle"></i><span>Tambah Penjualan</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#pembeli-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Pembeli</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -271,6 +253,58 @@
           </li>
         </ul>
       </li><!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#quotation-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart3"></i><span>Sales Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="quotation-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/sales-quotation">
+              <i class="bi bi-circle"></i><span>Data Sales Quotation</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/sales-quotation/tambah">
+              <i class="bi bi-circle"></i><span>Tambah Sales Quotation</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart3"></i><span>Sales Order</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/sales-order">
+              <i class="bi bi-circle"></i><span>Data Sales Order</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-heading">Accounting</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#accounting-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri ri-calculator-line"></i><span>Accounting</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="accounting-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/accounting">
+              <i class="bi bi-circle"></i><span>Data Accounting</span>
+            </a>
+          </li>
+          <li>
+            <a href="/home/accounting/tambah">
+              <i class="bi bi-circle"></i><span>Tambah Accounting</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
     </ul>
 
   </aside><!-- End Sidebar-->

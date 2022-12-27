@@ -45,12 +45,6 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Barcode</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="barcode" id="barcode" class="form-control" value="{{ $bahan->barcode }}">
-                  </div>
-                </div>
-                <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Gambar Lama</label>
                   <img src="{{ asset('/img_bahan/'.$bahan->gambar) }}" style="width: 20%" alt="">
                   <div class="col-sm-10">

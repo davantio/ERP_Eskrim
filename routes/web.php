@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BahanController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\BOMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::post('/home/produk/simpan', [ProdukController::class, 'store'])->name('pr
 Route::get('/home/produk/edit/{id}', [ProdukController::class, 'edit']);
 Route::put('/home/produk/update/{id}', [ProdukController::class, 'update'])->name('produk-update');
 Route::get('/home/produk/delete/{id}', [ProdukController::class, 'destroy'])->name('produk-delete');
+Route::get('/home/produk/cetak', [ProdukController::class, 'cetakProduk'])->name('produk-cetak');
 
 Route::get('/home/bahan', [BahanController::class, 'index']);
 Route::get('/home/bahan/tambah', [BahanController::class, 'create']);
@@ -37,10 +39,17 @@ Route::post('/home/bahan/simpan', [BahanController::class, 'store'])->name('baha
 Route::get('/home/bahan/edit/{id}', [BahanController::class, 'edit']);
 Route::put('/home/bahan/update/{id}', [BahanController::class, 'update'])->name('bahan-update');
 Route::get('/home/bahan/delete/{id}', [BahanController::class, 'destroy'])->name('bahan-delete');
+Route::get('/home/bahan/cetak', [BahanController::class, 'cetakBahan'])->name('bahan-cetak');
 
-Route::get('/home/bom', function () {
-    return view('bom.bom');
-});
+Route::get('/home/bom', [BOMController::class,'material']);
+Route::get('/home/bom-input', [BOMController::class,'materialInput']);
+Route::post('/home/bom-input', [BOMController::class,'upload']);
+Route::get('/home/bom-input-item/{kode_bom}', [BOMController::class,'materialInputItems']);
+Route::post('/home/bom-input-item', [BOMController::class,'uploadList']);
+
+// Route::get('/home/bom', function () {
+//     return view('bom.bom');
+// });
 
 Route::get('/home/rfq', function () {
     return view('rfq.rfq');
@@ -48,6 +57,10 @@ Route::get('/home/rfq', function () {
 
 Route::get('/home/po', function () {
     return view('po.po');
+});
+
+Route::get('/home/accounting', function () {
+    return view('accounting.accounting');
 });
 
 Route::get('/home/vendor', [VendorController::class, 'index']);

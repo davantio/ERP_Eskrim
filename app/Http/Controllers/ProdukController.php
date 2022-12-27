@@ -19,6 +19,12 @@ class ProdukController extends Controller
         return view ('produk.produk', compact('produk'));
     }
 
+    public function cetakProduk()
+    {
+        $dtProduk = Produk::get();
+        return view ('produk.produk-cetak', compact('dtProduk'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +47,6 @@ class ProdukController extends Controller
             'nama' => 'required',
             'kode' => 'required',
             'harga' => 'required',
-            'barcode' => 'required',
             'gambar' => 'file|image|mimes:jpeg,png,jpg:max:2048'
         ]);
 
@@ -54,7 +59,6 @@ class ProdukController extends Controller
             'nama' => $request->nama,
             'kode' => $request->kode,
             'harga' => $request->harga,
-            'barcode' => $request->barcode,
             'gambar' =>  $nama_gambar
         ]);
         return redirect('/home/produk');
@@ -96,7 +100,6 @@ class ProdukController extends Controller
             'nama' => 'required',
             'kode' => 'required',
             'harga' => 'required',
-            'barcode' => 'required',
             'gambar' => 'file|image|mimes:jpeg,png,jpg:max:2048'
         ]);
 
@@ -104,7 +107,6 @@ class ProdukController extends Controller
         $produk->nama = $request->nama;
         $produk->kode = $request->kode;
         $produk->harga = $request->harga;
-        $produk->barcode = $request->barcode;
 
         if($request->hasfile('gambar')) {
             File::delete('img_produk/'.$produk->gambar);

@@ -18,7 +18,6 @@ class CreateBahansTable extends Migration
             $table->string('nama', 100);
             $table->string('kode', 10);
             $table->integer('harga');
-            $table->string('barcode', 10);
             $table->integer('stok')->nullable();
             $table->string('gambar', 255);
             $table->timestamps();

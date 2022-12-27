@@ -19,6 +19,12 @@ class BahanController extends Controller
         return view ('bahan.bahan', compact('bahan'));
     }
 
+    public function cetakBahan()
+    {
+        $dtBahan = Bahan::get();
+        return view ('bahan.bahan-cetak', compact('dtBahan'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +47,6 @@ class BahanController extends Controller
             'nama' => 'required',
             'kode' => 'required',
             'harga' => 'required',
-            'barcode' => 'required',
             'gambar' => 'file|image|mimes:jpeg,png,jpg:max:2048'
         ]);
 
@@ -54,7 +59,6 @@ class BahanController extends Controller
             'nama' => $request->nama,
             'kode' => $request->kode,
             'harga' => $request->harga,
-            'barcode' => $request->barcode,
             'gambar' =>  $nama_gambar
         ]);
         return redirect('/home/bahan');
@@ -96,7 +100,6 @@ class BahanController extends Controller
             'nama' => 'required',
             'kode' => 'required',
             'harga' => 'required',
-            'barcode' => 'required',
             'gambar' => 'file|image|mimes:jpeg,png,jpg:max:2048'
         ]);
 
@@ -104,7 +107,6 @@ class BahanController extends Controller
         $bahan->nama = $request->nama;
         $bahan->kode = $request->kode;
         $bahan->harga = $request->harga;
-        $bahan->barcode = $request->barcode;
 
         if($request->hasfile('gambar')) {
             File::delete('img_bahan/'.$produk->gambar);
