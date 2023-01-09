@@ -49,7 +49,7 @@
                       <td>{{$item->total_harga}}</td>
                       <td>
                           <a href="{{ url('/home/bom-input-item/'.$item->kode_bom) }}">Edit</a>
-                          <a href="/home/bom/delete">Hapus</a>
+                          <a href="{{ url('/home/bom-delete/'.$item->kode_bom) }}">Hapus</a>
                       </td>
                     </tr>
                     @endforeach

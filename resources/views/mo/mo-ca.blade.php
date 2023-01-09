@@ -1,15 +1,15 @@
 @extends('home.master')
 
-@section('judul', 'Halaman Tambah Item BoM')
+@section('judul', 'Halaman Check Availability')
 
 @section('isi')
     <div class="pagetitle">
-      <h1>Tambah Item Bill of Material</h1>
+      <h1>Check Availability</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item">BoM</li>
-          <li class="breadcrumb-item active">Tambah Item BoM</li>
+          <li class="breadcrumb-item">MO</li>
+          <li class="breadcrumb-item active">Check Availability</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -20,7 +20,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Tambah Data Item Bill of Material</h5>
+              <h5 class="card-title">Check Availability</h5>
               
                 <!-- General Form Elements -->
                 <form action="{{ url('/home/bom-input-item')}}" method="post" enctype="multipart/form-data">
@@ -38,46 +38,6 @@
                     <input type="text" name="nama" id="nama" class="form-control" value="{{$bom->nama}}" disabled>
                   </div>
                 </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Pilih Bahan</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="kode_bahan" id="kode_bahan">
-                      <option selected>Pilih Bahan</option>
-                        @if($materials->count())
-                        @foreach($materials as $item)
-                          <option value="{{$item->id}}">{{$item->nama}}</option>
-                        @endforeach
-                        @endif
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Kuantitas</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="kuantitas" id="kuantitas" class="form-control">
-                    </div>
-                </div>  
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Satuan</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="satuan" id="satuan">
-                      <option selected>Pilih Satuan</option>
-                        <option value="Gram">Gram</option>
-                        <option value="Kg">Kg</option>
-                        <option value="Liter">Liter</option>
-                        <option value="Ml">Ml</option>
-                        <option value="Butir">Butir</option>
-                        <option value="Orang">Orang</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" name="simpan">Tambah Bahan</button>
-                </div>
               </form><!-- End General Form Elements -->
             </div>
           </div>
@@ -92,10 +52,11 @@
                       <th scope="col">#</th>
                       <th scope="col">Kode</th>
                       <th scope="col">Nama Bahan</th>
-                      <th scope="col">Kuantitas</th>
+                      <th scope="col">Dibutuhkan</th>
                       <th scope="col">Satuan</th>
                       <th scope="col">Harga Satuan</th>
-                      <th scope="col">Harga Total<th>
+                      <th scope="col">On Hand<th>
+                      <th scope="col">Status</th>
                       <th scope="col">Aksi</th>
                   </tr>
                 </thead>
@@ -106,18 +67,21 @@
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->kode_bom}}</td>
                       <td>{{$item->nama}}</td>
-                      <td>{{$item->kuantitas}}</td>
-                      <td>{{$item->satuan}}</td>
-                      <td>{{$item->harga}}</td>
                       @php
                       {{
-                          $total = $item->harga * $item->kuantitas;
+                          $total = $item->kuantitas * $item->kuantitas;
                       }}
                       @endphp
                       <td>{{$total}}</td>
+                      <td>{{$item->satuan}}</td>
+                      <td>{{$item->harga}}</td>
+                      <td>{{$item->stok}}</td>
                       <td>
                       <td>
-                          <a href="{{ url('home/bom-delete-item/'.$item->kode_bom_list) }}">Hapus</a>
+                          <a href="{{ url('home/rfq-input') }}" class="btn btn-danger delete-confirm">{{$item->stok < $total ? 'Bahan Kurang!' : 'Tersedia'}}</a>
+                      </td>
+                      <td>
+                          <a href="#" class="btn btn-danger delete-confirm">Hapus</a>
                       </td>
                     </tr>
                     @endforeach

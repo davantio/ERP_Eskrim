@@ -75,6 +75,28 @@ class BOMController extends Controller
         return redirect('/home/bom-input-item/' . $request->kode_bom);
     }
 
+    public function deleteList($kode_bom_list){
+        $bom_list = BOMList::find($kode_bom_list);
+        $product = Bahan::find($bom_list->kode_bahan);
+        $harga = $product->harga;
+        $bom = BOM::find($bom_list->kode_bom);
+        $harga_lama = $bom->total_harga;
+        $harga_baru = $harga_lama - ($harga * $bom_list->kuantitas);
+
+        $bom->total_harga = $harga_baru;
+        $bom->save();
+
+        $bom_list->delete();
+       return redirect('/home/bom-input-item/' . $bom_list->kode_bom);
+    }
+
+    public function deleteBom($kode_bom){
+        $bom = BOM::find($kode_bom);
+
+        $bom->delete();
+       return redirect('/home/bom/');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

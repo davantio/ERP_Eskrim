@@ -176,7 +176,7 @@
             </a>
           </li>
           <li>
-            <a href="/home/mo/tambah">
+            <a href="/home/mo-input">
               <i class="bi bi-circle"></i><span>Tambah MO</span>
             </a>
           </li>
@@ -214,21 +214,8 @@
             </a>
           </li>
           <li>
-            <a href="/home/rfq/tambah">
+            <a href="/home/rfq-input">
               <i class="bi bi-circle"></i><span>Tambah RFQ</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#po-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-clipboard-check"></i><span>Purchase Order</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="po-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/home/po">
-              <i class="bi bi-circle"></i><span>Data Purchase Order</span>
             </a>
           </li>
         </ul>
@@ -256,16 +243,16 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#quotation-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart3"></i><span>Sales Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-cart-plus"></i><span>Sales Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="quotation-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/home/sales-quotation">
+            <a href="/home/sq">
               <i class="bi bi-circle"></i><span>Data Sales Quotation</span>
             </a>
           </li>
           <li>
-            <a href="/home/sales-quotation/tambah">
+            <a href="/home/sq-input">
               <i class="bi bi-circle"></i><span>Tambah Sales Quotation</span>
             </a>
           </li>
@@ -274,11 +261,11 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart3"></i><span>Sales Order</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-cart-fill"></i><span>Sales Orders</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/home/sales-order">
+            <a href="/home/so">
               <i class="bi bi-circle"></i><span>Data Sales Order</span>
             </a>
           </li>
