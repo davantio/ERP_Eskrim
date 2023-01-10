@@ -34,7 +34,7 @@
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Kuantitas</th>
                     <th scope="col">Nama BoM</th>
-                    <th scope="col">Total Harga</th>
+                    <th scope="col">Biaya Produksi</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
@@ -46,10 +46,10 @@
                       <td>{{$item->nama}}</td>
                       <td>{{$item->kuantitas}}</td>
                       <td>{{$item->kode_bom}}</td>
-                      <td>{{$item->total_harga}}</td>
+                      <td>Rp. {{$item->total_harga}}</td>
                       <td>
-                          <a href="{{ url('/home/bom-input-item/'.$item->kode_bom) }}">Edit</a>
-                          <a href="{{ url('/home/bom-delete/'.$item->kode_bom) }}">Hapus</a>
+                          <a href="{{ url('/home/bom-input-item/'.$item->kode_bom) }}"><span class="badge bg-success"> Edit</span></a>
+                          <a href="{{ url('/home/bom-delete/'.$item->kode_bom) }}"><span class="badge bg-danger"> Hapus</span></a>
                       </td>
                     </tr>
                     @endforeach

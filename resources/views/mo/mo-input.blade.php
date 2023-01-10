@@ -40,7 +40,7 @@
                       <option selected>Pilih Produk</option>
                         @if($boms->count())
                         @foreach($boms as $item)
-                          <option value="{{$item->kode_bom}}">{{$item->kode_bom}} - {{$item->nama}}</option>
+                          <option value="{{$item->kode_bom}}">{{$item->kode_bom}} - {{$item->nama}} x {{$item->kuantitas}} Pcs</option>
                         @endforeach
                         @endif
                     </select>

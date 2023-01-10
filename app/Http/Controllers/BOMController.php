@@ -91,10 +91,19 @@ class BOMController extends Controller
     }
 
     public function deleteBom($kode_bom){
-        $bom = BOM::find($kode_bom);
+        $bom_list = BOMList::where('kode_bom', $kode_bom);
+        $bom_list->delete();
 
+        $bom = BOM::find($kode_bom);
         $bom->delete();
        return redirect('/home/bom/');
+    }
+
+    public function cetakBom()
+    {
+        $bom = BOM::join('produk', 'bom.kode_produk', '=', 'produk.id')
+            ->get(['bom.*', 'produk.nama']);
+        return view ('bom.bom-cetak', compact('bom'));
     }
 
     /**

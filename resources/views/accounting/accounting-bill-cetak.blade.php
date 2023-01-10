@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Laporan Data Bahan</title>
+    <title>Laporan Pembelian</title>
 
     <style>
     .invoice-box {
@@ -107,9 +107,9 @@
     }}
     @endphp
     <center>
-    <h2>Laporan Data Bahan</h2>
+    <h2>Laporan Pembelian Bahan</h2>
     </center>       
-    <label>Dicetak Tanggal: {{$tanggal}}</label>  
+    <label>Dibuat: {{$tanggal}}</label>  
         <table cellpadding="0" cellspacing="0" id="myTable">
             <tr class="top">
                 <td colspan="2">
@@ -139,30 +139,30 @@
 
             <tr class="heading">
                 <td width="10%">
-                    Barcode
+                    Reference
                 </td>
                 <td width="11%">
-                    Nama Bahan
+                    Nama Vendor
                 </td>
                 <td width="10%">
-                    Kode Bahan
+                    Tanggal
                 </td>
                 <td width="10%">
-                    Harga
+                    Total
                 </td>
                 <td width="10%">
-                    Stok
+                    Metode Pembayaran
                 </td>
             </tr>
 
-            @if($dtBahan->count())
-            @foreach($dtBahan as $item)
+            @if($rfq->count())
+            @foreach($rfq as $item)
             <tr class="item">
-                <td>{!! DNS1D::getBarcodeHTML('Rp. '. $item->harga, 'C39') !!}</td>
+                <td>{{$item->kode_rfq}}</td>
                 <td>{{$item->nama}}</td>
-                <td>{{$item->kode}}</td>
-                <td>Rp. {{$item->harga}}</td>
-                <td>{{$item->stok}}</td>
+                <td>{{$item->tanggal_order}}</td>
+                <td>Rp. {{$item->total_harga}}</td>
+                <td>{{$item->metode_pembayaran == 1 ? 'Cash' : 'Transfer'}}</td>
             </tr>
             @endforeach
             @endif

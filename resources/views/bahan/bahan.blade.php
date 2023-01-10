@@ -8,7 +8,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item">Bahan</li>
+          <li class="breadcrumb-item">Manufacturing</li>
           <li class="breadcrumb-item active">Data Bahan</li>
         </ol>
       </nav>
@@ -26,7 +26,7 @@
               <table class="table datatable">
                 <div class="card-body">
                     <a href="/home/bahan/tambah"><button type="button" class="btn btn-primary">Tambah Bahan</button></a>
-                    <a href="/home/bahan/cetak" target="_blank"><button type="button" class="btn btn-dark">Cetak Bahan</button></a>
+                    <a href="/home/bahan/cetak" target="_blank"><button type="button" class="btn btn-secondary">Cetak Bahan</button></a>
                 <thead>
                 <tr>
                     <th scope="col">#</th>

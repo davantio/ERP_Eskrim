@@ -8,7 +8,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item">Pembeli</li>
+          <li class="breadcrumb-item">Sales</li>
           <li class="breadcrumb-item active">Tambah Pembeli</li>
         </ol>
       </nav>

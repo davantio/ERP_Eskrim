@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/home" class="logo d-flex align-items-center">
         <img src="{{ asset('backend/img/logo.png') }}" alt="">
         <span class="d-none d-lg-block">Es  Krim</span>
       </a>
@@ -113,7 +113,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bx-package"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -131,7 +131,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#bahan-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Bahan</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bx-shopping-bag"></i><span>Bahan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="bahan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -149,7 +149,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#bom-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-chat-text"></i><span>Bill of Material</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bx-notepad"></i><span>Bill of Material</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="bom-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -205,7 +205,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#rfq-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-clipboard"></i><span>Request For Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-cart-plus"></i><span>Request For Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="rfq-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -216,6 +216,19 @@
           <li>
             <a href="/home/rfq-input">
               <i class="bi bi-circle"></i><span>Tambah RFQ</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#purchase-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart-fill"></i><span>Purchase Orders</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="purchase-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/home/po">
+              <i class="bi bi-cart-fill"></i><span>Data Purchase Order</span>
             </a>
           </li>
         </ul>
@@ -243,7 +256,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#quotation-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart-plus"></i><span>Sales Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bag-plus"></i><span>Sales Quotation</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="quotation-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -261,7 +274,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-cart-fill"></i><span>Sales Orders</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bag-fill"></i><span>Sales Orders</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -282,11 +295,6 @@
           <li>
             <a href="/home/accounting">
               <i class="bi bi-circle"></i><span>Data Accounting</span>
-            </a>
-          </li>
-          <li>
-            <a href="/home/accounting/tambah">
-              <i class="bi bi-circle"></i><span>Tambah Accounting</span>
             </a>
           </li>
         </ul>

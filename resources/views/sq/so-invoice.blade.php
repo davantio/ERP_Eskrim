@@ -107,7 +107,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                INVOICE LOGO
+                                <img src="{{ asset('backend/img/logo-es.png') }}" alt="" width="150px">
                             </td>
 
                             @if($sq->count())
@@ -128,9 +128,9 @@
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
+                                PT. N'Ice Cream<br>
+                                Kec. Ngoro Kab. Mojokerto, Jawa Timur<br>
+                                Gadon, Kutogirang, 61385
                             </td>
 
                             @if($sq->count())
@@ -159,7 +159,7 @@
             @foreach($sq as $item)
             <tr class="details">
                 <td>{{$item->metode_pembayaran == 1 ? 'Cash' : 'Transfer'}}</td>
-                <td>{{$item->status < 5 ? 'To Invoice' : 'Invoice Paid'}}</td>
+                <td>{{$item->status < 4 ? 'Draft Invoice' : 'Invoice Paid'}}</td>
             </tr>
             @endforeach
             @endif
@@ -202,5 +202,8 @@
             @endif
         </table>
     </div>
+    <script type="text/javascript">
+        window.print();
+    </script>
 </body>
 </html>

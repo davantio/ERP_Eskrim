@@ -45,46 +45,49 @@
                     <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->kode_mo}}</td>
-                      @if($item->status == 3)
-                      <td><a  href="{{ url('/home/mo-ca/'.$item->kode_bom) }}">{{$item->nama}}</a></td>
-                      @else
                       <td>{{$item->nama}}</td>
-                      @endif
                       <td>{{$item->kuantitas}}</td>
                       <td>{{$item->tanggal}}</td>
                       <td>
                         @if($item->status == 1 )
-                        <span class="badge badge-secondary">Draft</span>
+                        <span class="badge bg-primary">Draft</span>
                         @elseif($item->status == 2)
-                        <span class="badge badge-primary">Mark as Todo</span>
+                        <span class="badge bg-secondary">Mark as Todo</span>
                         @elseif($item->status == 3)
-                        <span class="badge badge-warning">Check Availability</span>
+                        <a href="{{ url('/home/mo-ca/'.$item->kode_mo) }}"><span class="badge bg-warning text-dark">Check Availability</span></a>
                         @elseif($item->status == 4)
-                        <span class="badge badge-secondary">Production</span>
+                        <span class="badge bg-info text-dark">Production</span>
                         @elseif($item->status == 5)
-                        <span class="badge badge-success">Done</span>
+                        <span class="badge bg-success">Done</span>
                         @endif
                       </td>
                       <td>
+                        @if($item->status == 1 )
                         <form action="/home/mo/update/{{$item->kode_mo}}" method="post">
                           @method('put')
                           {{ csrf_field() }}
-                          @if($item->status == 1 )
                           <button  type="submit" onclick="return confirm('Proses Mark as Todo?');" class="btn btn-info">Mark as Todo</button>
-                          @elseif($item->status == 2)
+                        </form>
+                        @elseif($item->status == 2)
+                        <form action="/home/mo/update/{{$item->kode_mo}}" method="post">
+                          @method('put')
+                          {{ csrf_field() }}
                           <button  type="submit" onclick="return confirm('Proses Check Availability?');" class="btn btn-info">Check Availability</button>
-                          @elseif($item->status == 3)
+                        </form>
+                        @elseif($item->status == 3)
+                        <form action="/home/mo-produce/{{$item->kode_mo}}" method="post">
+                          {{ csrf_field() }}
                           <button  type="submit" onclick="return confirm('Proses Produce?');" class="btn btn-info">Produce</button>
-                          @elseif($item->status == 4)
-                          <!-- <form action="{{ url('/home/rfq/confirm-bill') }}" method="post" class="btn p-0" name="input-form" id="input-form">
-                              {{ csrf_field() }}
-                              <input type="text" id="kode_rfq" value="{{$rfq->kode_rfq}}" name="kode_rfq" hidden>
-                              <button type="submit" onclick="return confirm('Confirm Bill?');" class="btn btn-success">Confirm Bill</button>
-                          </form>                 -->
+                        </form>
+                        @elseif($item->status == 4) 
+                        <form action="/home/mo-done/{{$item->kode_mo}}" method="post">
+                          @method('post')
+                          {{ csrf_field() }}
                           <button  type="submit" onclick="return confirm('Sudah selesai?');" class="btn btn-info">Mark as done</button>
+                        </form>
                           @endif
                         </form>
-                        <a href="{{ url('/home/mo-delete/'.$item->kode_mo) }}" class="btn btn-danger delete-confirm">Cancel</a>
+                        <a href="{{ url('/home/mo-delete/'.$item->kode_mo) }}" class="btn btn-danger delete-confirm">Hapus</a>
                       </td>
                     </tr>
                     @endforeach

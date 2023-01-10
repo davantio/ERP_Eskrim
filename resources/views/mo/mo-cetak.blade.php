@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Laporan Data Bahan</title>
+    <title>Laporan Data MO</title>
 
     <style>
     .invoice-box {
@@ -107,7 +107,7 @@
     }}
     @endphp
     <center>
-    <h2>Laporan Data Bahan</h2>
+    <h2>Laporan Data Manufacturing Order</h2>
     </center>       
     <label>Dicetak Tanggal: {{$tanggal}}</label>  
         <table cellpadding="0" cellspacing="0" id="myTable">
@@ -138,31 +138,27 @@
             </tr>
 
             <tr class="heading">
-                <td width="10%">
-                    Barcode
+                <td>
+                    Kode MO
                 </td>
-                <td width="11%">
-                    Nama Bahan
+                <td>
+                    Nama Produk
                 </td>
-                <td width="10%">
-                    Kode Bahan
+                <td>
+                    Kuantitas
                 </td>
-                <td width="10%">
-                    Harga
-                </td>
-                <td width="10%">
-                    Stok
+                <td>
+                    Tanggal Order
                 </td>
             </tr>
 
-            @if($dtBahan->count())
-            @foreach($dtBahan as $item)
+            @if($moDatas->count())
+            @foreach($moDatas as $item)
             <tr class="item">
-                <td>{!! DNS1D::getBarcodeHTML('Rp. '. $item->harga, 'C39') !!}</td>
+                <td>{{$item->kode_mo}}</td>
                 <td>{{$item->nama}}</td>
-                <td>{{$item->kode}}</td>
-                <td>Rp. {{$item->harga}}</td>
-                <td>{{$item->stok}}</td>
+                <td>{{$item->kuantitas}}</td>
+                <td>{{$item->tanggal}}</td>
             </tr>
             @endforeach
             @endif

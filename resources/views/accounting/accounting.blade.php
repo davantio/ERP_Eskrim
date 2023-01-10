@@ -24,10 +24,10 @@
 
               <!-- Table with stripped rows -->
                 <div class="card-body">
-                    <a href="/home/bom-input"><button type="button" class="btn btn-primary w-100">Customer Invoicing</button></a>
+                    <a href="/home/accounting-invoicing"><button type="button" class="btn btn-primary w-100">Customer Invoicing</button></a>
                     <br>
                     <br>
-                    <a href="/home/bom/cetak" target="_blank"><button type="button" class="btn btn-secondary w-100">Vendor Bill</button></a>
+                    <a href="/home/accounting-bill"><button type="button" class="btn btn-secondary w-100">Vendor Bill</button></a>
                 </div>
               <!-- End Table with stripped rows -->
 

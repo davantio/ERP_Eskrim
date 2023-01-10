@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Laporan Data Bahan</title>
+    <title>INVOICE</title>
 
     <style>
     .invoice-box {
@@ -101,16 +101,7 @@
 
 <body>
     <div class="invoice-box">
-    @php
-    {{
-        $tanggal = date("Y-m-d");
-    }}
-    @endphp
-    <center>
-    <h2>Laporan Data Bahan</h2>
-    </center>       
-    <label>Dicetak Tanggal: {{$tanggal}}</label>  
-        <table cellpadding="0" cellspacing="0" id="myTable">
+        <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
                     <table>
@@ -118,6 +109,15 @@
                             <td class="title">
                                 <img src="{{ asset('backend/img/logo-es.png') }}" alt="" width="150px">
                             </td>
+
+                            @if($rfq->count())
+                            @foreach($rfq as $item)
+                            <td>
+                                Invoice #: {{$item->kode_rfq}}<br>
+                                Created: {{$item->tanggal_order}}<br>
+                            </td>
+                            @endforeach
+                            @endif
                         </tr>
                     </table>
                 </td>
@@ -127,6 +127,15 @@
                 <td colspan="2">
                     <table>
                         <tr>
+                            @if($rfq->count())
+                            @foreach($rfq as $item)
+                            <td>
+                                {{$item->nama}}<br>
+                                {{$item->alamat}}<br>
+                            </td>
+                            @endforeach
+                            @endif
+
                             <td>
                                 PT. N'Ice Cream<br>
                                 Kec. Ngoro Kab. Mojokerto, Jawa Timur<br>
@@ -138,31 +147,56 @@
             </tr>
 
             <tr class="heading">
-                <td width="10%">
-                    Barcode
+                <td>
+                    Metode Pembayaran
                 </td>
-                <td width="11%">
-                    Nama Bahan
-                </td>
-                <td width="10%">
-                    Kode Bahan
-                </td>
-                <td width="10%">
-                    Harga
-                </td>
-                <td width="10%">
-                    Stok
+                <td>
+                    Status
                 </td>
             </tr>
 
-            @if($dtBahan->count())
-            @foreach($dtBahan as $item)
+            @if($rfq->count())
+            @foreach($rfq as $item)
+            <tr class="details">
+                <td>{{$item->metode_pembayaran == 1 ? 'Cash' : 'Transfer'}}</td>
+                <td>{{$item->status < 4 ? 'Waiting to Bill' : 'Fully Billed'}}</td>
+            </tr>
+            @endforeach
+            @endif
+
+            <tr class="heading">
+                <td>
+                    Item
+                </td>
+
+                <td>
+                    Harga
+                </td>
+            </tr>
+
+            @if($rfqlist->count())
+            @foreach($rfqlist as $item)
             <tr class="item">
-                <td>{!! DNS1D::getBarcodeHTML('Rp. '. $item->harga, 'C39') !!}</td>
-                <td>{{$item->nama}}</td>
-                <td>{{$item->kode}}</td>
-                <td>Rp. {{$item->harga}}</td>
-                <td>{{$item->stok}}</td>
+                <td>{{$item->nama}} ({{$item->kuantitas}})</td>
+                @php
+                    {{
+                      $total = $item->harga * $item->kuantitas;
+                    }}
+                @endphp
+                <td>Rp. {{$total}}</td>
+            </tr>
+            @endforeach
+            @endif
+
+            @if($rfq->count())
+            @foreach($rfq as $item)
+            <tr class="total">
+                <td></td>
+                
+                <td>
+                    <label for="text_harga"> Total Harga : </label>
+                    <label for="total_harga"> Rp. {{$item->total_harga}}</label>
+                </td>
             </tr>
             @endforeach
             @endif

@@ -1,15 +1,15 @@
 @extends('home.master')
 
-@section('judul', 'Halaman Data RFQ')
+@section('judul', 'Halaman Data PO')
 
 @section('isi')
     <div class="pagetitle">
-      <h1>Data Request For Quotation</h1>
+      <h1>Data Purchase Orders</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
           <li class="breadcrumb-item">Purchasing</li>
-          <li class="breadcrumb-item active">Data RFQ</li>
+          <li class="breadcrumb-item active">Data Purchase Orders</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -20,12 +20,12 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Data Request For Quotation</h5>
+              <h5 class="card-title">Data Purchase Orders</h5>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <div class="card-body">
-                    <a href="/home/rfq-input"><button type="button" class="btn btn-primary">Tambah RFQ</button></a>
+                    
                 </div>
                 <thead>
                 <tr>
@@ -35,12 +35,14 @@
                     <th scope="col">Tanggal Order</th>
                     <th scope="col">Status</th>
                     <th scope="col">Total Harga</th>
+                    <th scope="col">Metode Pembayaran</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   @if($rfqs->count())
                   @foreach($rfqs as $item)
+                  @if($item->status >1)
                     <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->kode_rfq}}</td>
@@ -49,16 +51,34 @@
                       <td>
                         @if($item->status == 1 )
                         <span class="badge bg-primary">Draft</span>
-                        @elseif($item->status > 1)
+                        @elseif($item->status == 2)
                         <span class="badge bg-secondary">Purchase Order</span>
+                        @elseif($item->status == 3)
+                        <span class="badge bg-warning text-dark">Nothing to Bill</span>
+                        @elseif($item->status == 4)
+                        <span class="badge bg-info text-dark">Waiting to Bill</span>
+                        @elseif($item->status == 5)
+                        <span class="badge bg-success">Fully Billed</span>
                         @endif
                       </td>
                       <td>{{$item->total_harga}}</td>
+                      <td> 
+                        @if($item->metode_pembayaran == 0 )
+                        <span class="badge bg-secondary">Belum Dibuat</span>
+                        @elseif($item->metode_pembayaran == 1)
+                        <span class="badge bg-primary">Cash</span>
+                        @elseif($item->metode_pembayaran == 2)
+                        <span class="badge bg-primary">Transfer</span>
+                        @endif
+                      </td>
                       <td>
-                        <a href="{{ url('/home/rfq-input-item/'.$item->kode_rfq) }}"><span class="badge bg-success"> Edit</span></a>
-                        <a href="{{ url('/home/rfq-delete/'.$item->kode_rfq) }}"><span class="badge bg-danger"> Hapus</span></a>
+                        <a href="{{ url('/home/po-input-item/'.$item->kode_rfq) }}"><span class="badge bg-success"> Edit</span></a>
+                        @if($item->status >= 5 )
+                        <a href="{{ url('/home/po-invoice/'.$item->kode_rfq) }}" target="_blank"><span class="badge bg-info text-dark"> Invoice</span></a>
+                        @endif
                       </td>
                     </tr>
+                  @endif
                   @endforeach
                   @else
                   <tr>

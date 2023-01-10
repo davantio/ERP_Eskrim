@@ -70,6 +70,8 @@
                         <option value="Liter">Liter</option>
                         <option value="Ml">Ml</option>
                         <option value="Butir">Butir</option>
+                        <option value="Sachet">Sachet</option>
+                        <option value="Pcs">Pcs</option>
                         <option value="Orang">Orang</option>
                     </select>
                   </div>
@@ -117,7 +119,7 @@
                       <td>{{$total}}</td>
                       <td>
                       <td>
-                          <a href="{{ url('home/bom-delete-item/'.$item->kode_bom_list) }}">Hapus</a>
+                          <a href="{{ url('home/bom-delete-item/'.$item->kode_bom_list) }}"><span class="badge bg-success"> Hapus</span></a>
                       </td>
                     </tr>
                     @endforeach
@@ -134,6 +136,7 @@
 
           <div class="card">
             <div class="card-body">
+            <h5 class="card-title">Total Harga</h5>
               <label for="text_harga"> Total Harga : </label>
               <label for="total_harga" id="val"> 0</label>
             </div>

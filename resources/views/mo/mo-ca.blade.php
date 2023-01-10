@@ -54,7 +54,7 @@
                       <th scope="col">Nama Bahan</th>
                       <th scope="col">Dibutuhkan</th>
                       <th scope="col">Satuan</th>
-                      <th scope="col">Harga Satuan</th>
+                      <th scope="col">Harga Total</th>
                       <th scope="col">On Hand<th>
                       <th scope="col">Status</th>
                       <th scope="col">Aksi</th>
@@ -69,20 +69,26 @@
                       <td>{{$item->nama}}</td>
                       @php
                       {{
-                          $total = $item->kuantitas * $item->kuantitas;
+                          $total = $item->kuantitas * $mo->kuantitas;
                       }}
                       @endphp
                       <td>{{$total}}</td>
                       <td>{{$item->satuan}}</td>
-                      <td>{{$item->harga}}</td>
+                      <td>{{$item->harga * $total}}</td>
                       <td>{{$item->stok}}</td>
                       <td>
                       <td>
-                          <a href="{{ url('home/rfq-input') }}" class="btn btn-danger delete-confirm">{{$item->stok < $total ? 'Bahan Kurang!' : 'Tersedia'}}</a>
+                        <span class="badge bg-primary">{{$item->stok < $total ? 'Bahan Kurang!' : 'Tersedia'}}</span>
                       </td>
+                      @if($item->stok < $total )
                       <td>
-                          <a href="#" class="btn btn-danger delete-confirm">Hapus</a>
+                        <a href="{{ url('home/rfq-input') }}" class="btn btn-danger delete-confirm"> Tambah Bahan</a>
                       </td>
+                      @else
+                      <td>
+                        <span class="badge bg-secondary">Bahan Tersedia</span>
+                      </td>
+                      @endif
                     </tr>
                     @endforeach
                     @else
@@ -93,27 +99,20 @@
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <label for="text_harga"> Total Harga : </label>
+              <label for="text_harga"> Total Biaya Produksi : </label>
               <label for="total_harga" id="val"> 0</label>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
     <script>
     updateSubTotal(); // Initial call
 
     function updateSubTotal() {
         var table = document.getElementById("myTable");
         let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
-            return total + parseFloat(row.cells[6].innerHTML);
+            return total + parseFloat(row.cells[5].innerHTML);
         }, 0);
         document.getElementById("val").innerHTML = "Rp." + subTotal;
     }

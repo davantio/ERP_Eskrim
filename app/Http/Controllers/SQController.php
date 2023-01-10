@@ -44,7 +44,7 @@ class SQController extends Controller
         //     'kode_produk' => 'required',
         //     'kuantitas' => 'kuantitas',
         // ]);
-        $tanggal = date("Y/m/d");
+        $tanggal = date("Y-m-d");
         SQ::create([
             'kode_sq' => $request->kode_sq,
             'kode_pembeli' => $request->kode_pembeli,
@@ -86,7 +86,6 @@ class SQController extends Controller
 
         return redirect('/home/sq-input-item/' . $request->kode_sq);
     }
-
     
     public function soInputItems($kode_sq)
     {
@@ -193,7 +192,9 @@ class SQController extends Controller
             ->where('sq.kode_sq', $kode_sq)
             ->get(['sq.*', 'pembeli.nama', 'pembeli.alamat']);
 
-        $pdf = app('dompdf.wrapper')->loadView('sq.so-invoice', ['sqlist' => $sqList, 'sq' => $sq]);
-        return $pdf->stream('invoice-sq.pdf');
+        return view('sq.so-invoice', ['sqlist' => $sqList, 'sq' => $sq]);
+
+        // $pdf = app('dompdf.wrapper')->loadView('sq.so-invoice', ['sqlist' => $sqList, 'sq' => $sq]);
+        // return $pdf->stream('invoice-sq.pdf');
     }
 }
