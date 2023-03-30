@@ -53,7 +53,7 @@
                         <span class="badge bg-secondary">Purchase Order</span>
                         @endif
                       </td>
-                      <td>{{$item->total_harga}}</td>
+                      <td>Rp. {{$item->total_harga}}</td>
                       <td>
                         <a href="{{ url('/home/rfq-input-item/'.$item->kode_rfq) }}"><span class="badge bg-success"> Edit</span></a>
                         <a href="{{ url('/home/rfq-delete/'.$item->kode_rfq) }}"><span class="badge bg-danger"> Hapus</span></a>

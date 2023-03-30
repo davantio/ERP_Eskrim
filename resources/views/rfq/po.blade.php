@@ -61,7 +61,7 @@
                         <span class="badge bg-success">Fully Billed</span>
                         @endif
                       </td>
-                      <td>{{$item->total_harga}}</td>
+                      <td>Rp. {{$item->total_harga}}</td>
                       <td> 
                         @if($item->metode_pembayaran == 0 )
                         <span class="badge bg-secondary">Belum Dibuat</span>
