@@ -24,9 +24,11 @@ use App\Http\Controllers\AccountingController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('/login-aplikasi');
+// });
+
+Route::get('/', [LoginController::class, 'halamanlogin'])->name('login');
 
 
 Route::get('/home/produk', [ProdukController::class, 'index']);
